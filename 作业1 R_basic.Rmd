@@ -1,0 +1,77 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
+
+# 第二次课 课堂练习
+###第一次课
+##2023-11-30 ##学生：张宜
+
+```{r}
+# 如何将3.141592657 转换成 character
+as.character(3.141592657)
+# 如何将3.141592657 转换成 logical
+as.logical(3.141592657)
+# 如何判断"hello world"是否是⼀个character
+is.character("hello world")
+# 如何判断⼀个NA是否是缺失值
+is.na(NA)
+```
+
+```{r }
+v1 <- c(1,2,3,4)
+# 1. 取出v1的第2和第3个元素
+v1[c(F,T,T,F)] 
+v1[v1 > 1 & v1<4]
+v1[v1 >= 2 & v1<=3]
+
+# 2. 取出v1的最后⼀个元素
+v1[c(F,F,F,T)] 
+v1[v1=4]
+v1[v1=length(v1)]
+
+# 3. 取出v1的倒数第2个元素
+v1[c(F,F,T,F)] 
+
+
+# 4. 取出v1中整除3的元素
+v1[v1%%3==0]
+
+
+```
+
+```{r }
+
+# 5. v1[-1]会返回什么结果，有何启示？
+v1[-1]
+v1[-c(1:2)]
+v1[-2]
+#答：v1[-1]会返回2 3 4，即把v1的第一个数据删除，若是v1[-c(1:2)]则是把第一个和第二个数据删掉。v1[-2]就是把第二个数据删掉
+
+```
+
+```{r }
+# 6. v1[5]会返回什么结果，有何启示？
+v1[5]
+
+# 答： 返回NA，因为v1长度为4，超过长度的数据则为NA，缺失值。
+```
+
+```{r }
+# 7. v1[] \<- 99 与 v1 \<- 99 有何不同？
+v1[] < -99
+v1 < -99 
+# 上面两个是判断v1和v1里面的数据和-99 的大小的，感觉没有什么不同。
+
+v1[] <- 99;v1  # 这是把99这个数字赋值给变量v1,v1里面的四个数字变成了99
+v1 <- 99;v1    # 这是把99这个数字赋值给变量v1，v1变成了数字99
+```
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Ctrl+Shift+K* to preview the HTML file).
+
+The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
